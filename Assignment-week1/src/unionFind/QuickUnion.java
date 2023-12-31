@@ -1,3 +1,10 @@
+/**
+ * Quick find
+ * O ( n ) for find
+ * O( n ) for initialization
+ * O( n ) for union
+ * Trees can get very tall
+ */
 package unionFind;
 
 import java.util.Scanner;
