@@ -5,7 +5,7 @@
  * O( n ) for union
  * Trees can get very tall
  */
-package unionFind;
+package dynamicConnectivity;
 
 import java.util.Scanner;
 

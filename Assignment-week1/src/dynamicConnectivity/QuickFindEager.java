@@ -6,7 +6,7 @@
  */
 
 
-package unionFind;
+package dynamicConnectivity;
 
 import java.util.Scanner;
 
