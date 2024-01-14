@@ -29,9 +29,10 @@ public class ResizingQueueOfStrings {
         if(first == last) {
             first = -1;
             last = 0;
-        }
-        if((last > first && last - first == queue.length/4) || (last < first && queue.length + last - first  == queue.length/4)){
-            resize(queue.length/2);
+        }else{
+            if((last > first && last - first == queue.length/4) || (last < first && queue.length + last - first  == queue.length/4)){
+                resize(queue.length/2);
+            }
         }
 
         return item;
