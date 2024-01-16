@@ -1,10 +1,10 @@
-package assignment;
+//package assignment;
 
 import edu.princeton.cs.algs4.StdRandom;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class RandomizedQueue<Item> implements Iterable<Item> {
 
@@ -23,13 +23,13 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     // return the number of items on the randomized queue
     public int size() {
-        if(first == -1) return 0;
+        if (first == -1) return 0;
         return last > first ? last - first : items.length + last - first;
     }
 
     // add the item
     public void enqueue(Item item) {
-        if(item == null) throw new IllegalArgumentException();
+        if (item == null) throw new IllegalArgumentException();
         items[last] = item;
         last = (last + 1) % items.length;
         if (first == -1) first = 0;
@@ -40,13 +40,13 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     // remove and return a random item
     public Item dequeue() {
-        if(isEmpty()) throw new NoSuchElementException();
+        if (isEmpty()) throw new NoSuchElementException();
         int index = (first + StdRandom.uniformInt(size())) % items.length;
 //        System.out.println("Index to be removed " + index);
         Item item = items[index];
 //        System.out.println("item to be removed " + item);
         remove(index);
-        if (size() == items.length / 4) {
+        if (!isEmpty() && size() == items.length / 4) {
             resize(items.length / 2);
         }
         return item;
@@ -54,13 +54,13 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     // return a random item (but do not remove it)
     public Item sample() {
-        if(isEmpty()) throw new NoSuchElementException();
+        if (isEmpty()) throw new NoSuchElementException();
         int index = StdRandom.uniformInt(size());
         return items[(first + index) % size()];
     }
 
-    private void print(){
-        for(Item i : items){
+    private void print() {
+        for (Item i : items) {
             System.out.println(i);
         }
     }
@@ -82,8 +82,9 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
         @Override
         public Item next() {
+            if (!hasNext()) throw new NoSuchElementException();
             Item item = items[index];
-            index = (index + 1)%items.length;
+            index = (index + 1) % items.length;
             return item;
         }
 
@@ -120,32 +121,35 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     // unit testing (required)
     public static void main(String[] args) {
-        RandomizedQueue<String> queue = new RandomizedQueue<>();
-
-        Scanner scan = new Scanner(System.in);
-        while (true) {
-            System.out.println("1. size ?");
-            System.out.println("2. enqueue");
-            System.out.println("3. dequeue");
-            System.out.println("4. sample");
-            System.out.println("5. print");
-            int choice = scan.nextInt();
-
-            if (choice == 1) {
-                System.out.println(queue.size());
-            } else if (choice == 2) {
-                String item = scan.next();
-                queue.enqueue(item);
-            } else if (choice == 3) {
-                queue.dequeue();
-            } else if (choice == 4) {
-                System.out.println(queue.sample());
-            } else if (choice == 5) {
-                queue.print();
-            } else {
-                break;
-            }
-        }
+//        RandomizedQueue<String> queue = new RandomizedQueue<>();
+//
+//        Scanner scan = new Scanner(System.in);
+//        while (true) {
+//            System.out.println("1. size ?");
+//            System.out.println("2. enqueue");
+//            System.out.println("3. dequeue");
+//            System.out.println("4. sample");
+//            System.out.println("5. print");
+//            System.out.println("6. empty ?");
+//            int choice = scan.nextInt();
+//
+//            if (choice == 1) {
+//                System.out.println(queue.size());
+//            } else if (choice == 2) {
+//                String item = scan.next();
+//                queue.enqueue(item);
+//            } else if (choice == 3) {
+//                System.out.println(queue.dequeue());
+//            } else if (choice == 4) {
+//                System.out.println(queue.sample());
+//            } else if (choice == 5) {
+//                queue.print();
+//            } else if (choice == 6) {
+//                System.out.println(queue.isEmpty());
+//            } else {
+//                break;
+//            }
+//        }
     }
 
 }

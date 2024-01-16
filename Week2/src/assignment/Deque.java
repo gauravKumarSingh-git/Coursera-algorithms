@@ -1,8 +1,8 @@
-package assignment;
+//package assignment;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Deque<Item> implements Iterable<Item> {
 
@@ -94,6 +94,7 @@ public class Deque<Item> implements Iterable<Item> {
 
         @Override
         public Item next() {
+            if(!hasNext()) throw new NoSuchElementException();
             Item item = (Item) node.item;
             node = node.next;
             return item;
@@ -113,36 +114,36 @@ public class Deque<Item> implements Iterable<Item> {
 
     // unit testing (required)
     public static void main(String[] args) {
-        Deque<String> deque = new Deque<>();
-
-        Scanner scan = new Scanner(System.in);
-        while (true) {
-            System.out.println("1. size ?");
-            System.out.println("2. addFirst");
-            System.out.println("3. addLast");
-            System.out.println("4. remove first");
-            System.out.println("5. remove last");
-            System.out.println("6. print");
-            int choice = scan.nextInt();
-
-            if (choice == 1) {
-                System.out.println(deque.size());
-            } else if (choice == 2) {
-                String item = scan.next();
-                deque.addFirst(item);
-            } else if (choice == 3) {
-                String item = scan.next();
-                deque.addLast(item);
-            } else if (choice == 4) {
-                System.out.println(deque.removeFirst());
-            } else if (choice == 5) {
-                System.out.println(deque.removeLast());
-            } else if (choice == 6) {
-
-            } else {
-                break;
-            }
-        }
+//        Deque<String> deque = new Deque<>();
+//
+//        Scanner scan = new Scanner(System.in);
+//        while (true) {
+//            System.out.println("1. size ?");
+//            System.out.println("2. addFirst");
+//            System.out.println("3. addLast");
+//            System.out.println("4. remove first");
+//            System.out.println("5. remove last");
+//            System.out.println("6. print");
+//            int choice = scan.nextInt();
+//
+//            if (choice == 1) {
+//                System.out.println(deque.size());
+//            } else if (choice == 2) {
+//                String item = scan.next();
+//                deque.addFirst(item);
+//            } else if (choice == 3) {
+//                String item = scan.next();
+//                deque.addLast(item);
+//            } else if (choice == 4) {
+//                System.out.println(deque.removeFirst());
+//            } else if (choice == 5) {
+//                System.out.println(deque.removeLast());
+//            } else if (choice == 6) {
+//
+//            } else {
+//                break;
+//            }
+//        }
     }
 
 }
