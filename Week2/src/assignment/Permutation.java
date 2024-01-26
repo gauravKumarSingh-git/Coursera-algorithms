@@ -1,4 +1,4 @@
-//package assignment;
+package assignment;
 
 import edu.princeton.cs.algs4.StdIn;
 

@@ -1,8 +1,8 @@
-//package assignment;
+package assignment;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-//import java.util.Scanner;
+import java.util.Scanner;
 
 public class Deque<Item> implements Iterable<Item> {
 

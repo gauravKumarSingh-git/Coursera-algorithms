@@ -1,10 +1,10 @@
-//package assignment;
+package assignment;
 
 import edu.princeton.cs.algs4.StdRandom;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-//import java.util.Scanner;
+import java.util.Scanner;
 
 public class RandomizedQueue<Item> implements Iterable<Item> {
 
@@ -121,35 +121,35 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     // unit testing (required)
     public static void main(String[] args) {
-//        RandomizedQueue<String> queue = new RandomizedQueue<>();
-//
-//        Scanner scan = new Scanner(System.in);
-//        while (true) {
-//            System.out.println("1. size ?");
-//            System.out.println("2. enqueue");
-//            System.out.println("3. dequeue");
-//            System.out.println("4. sample");
-//            System.out.println("5. print");
-//            System.out.println("6. empty ?");
-//            int choice = scan.nextInt();
-//
-//            if (choice == 1) {
-//                System.out.println(queue.size());
-//            } else if (choice == 2) {
-//                String item = scan.next();
-//                queue.enqueue(item);
-//            } else if (choice == 3) {
-//                System.out.println(queue.dequeue());
-//            } else if (choice == 4) {
-//                System.out.println(queue.sample());
-//            } else if (choice == 5) {
-//                queue.print();
-//            } else if (choice == 6) {
-//                System.out.println(queue.isEmpty());
-//            } else {
-//                break;
-//            }
-//        }
+        RandomizedQueue<String> queue = new RandomizedQueue<>();
+
+        Scanner scan = new Scanner(System.in);
+        while (true) {
+            System.out.println("1. size ?");
+            System.out.println("2. enqueue");
+            System.out.println("3. dequeue");
+            System.out.println("4. sample");
+            System.out.println("5. print");
+            System.out.println("6. empty ?");
+            int choice = scan.nextInt();
+
+            if (choice == 1) {
+                System.out.println(queue.size());
+            } else if (choice == 2) {
+                String item = scan.next();
+                queue.enqueue(item);
+            } else if (choice == 3) {
+                System.out.println(queue.dequeue());
+            } else if (choice == 4) {
+                System.out.println(queue.sample());
+            } else if (choice == 5) {
+                queue.print();
+            } else if (choice == 6) {
+                System.out.println(queue.isEmpty());
+            } else {
+                break;
+            }
+        }
     }
 
 }
