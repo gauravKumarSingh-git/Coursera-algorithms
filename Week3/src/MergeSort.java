@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class MergeSort{
@@ -27,8 +28,9 @@ public class MergeSort{
         return t.compareTo(t1) <= 0;
     }
 
-    public static <T extends Comparable<? super T>> void sort(T[] a, T[] aux){
-//        T[] aux2 = (T[]) new Object[a.length];
+    public static <T extends Comparable<? super T>> void sort(T[] a){
+//        T[] aux = (T[]) new Object[a.length];
+        T[] aux = Arrays.copyOf(a, a.length);
         sort(a, aux, 0, a.length-1);
     }
 }
