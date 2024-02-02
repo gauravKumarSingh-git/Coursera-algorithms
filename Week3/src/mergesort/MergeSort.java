@@ -1,3 +1,5 @@
+package mergesort;
+
 import edu.princeton.cs.algs4.Insertion;
 
 import java.util.Arrays;

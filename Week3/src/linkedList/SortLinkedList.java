@@ -1,6 +1,7 @@
-import edu.princeton.cs.algs4.StdRandom;
+package linkedList;
 
-public class ShuffleLinkedList {
+public class SortLinkedList {
+
     private Node head = new Node();
     private int size = 0;
 
@@ -48,47 +49,52 @@ public class ShuffleLinkedList {
         return slow;
     }
 
-    private static Node merge(Node a, Node b){
+    private Node merge(Node left , Node right){
         Node result = null;
-        if(a == null) return b;
-        if(b == null) return a;
+        if(left == null) return right;
+        if(right == null) return left;
 
-        if(StdRandom.bernoulli()){
-            result = a;
-            result.next = merge(a.next, b);
-        }else{
-            result = b;
-            result.next = merge(a, b.next);
+        if(left.val <= right.val){
+            result = left;
+            result.next = merge(left.next, right);
+        }
+        else{
+            result = right;
+            result.next = merge(left, right.next);
         }
         return result;
     }
 
-    public static Node shuffle(Node h) {
-        if(h == null || h.next == null) return h;
+    private Node sort(Node h){
+        if(h == null || h.next == null){
+            return h;
+        }
 
         Node mid = findMiddle(h);
         Node nextOfMid = mid.next;
-
         mid.next = null;
-        Node left = shuffle(h);
-        Node right = shuffle(nextOfMid);
+
+        Node left = sort(h);
+        Node right = sort(nextOfMid);
+
         return merge(left, right);
+
     }
 
     public static void main(String[] args) {
-        ShuffleLinkedList llist = new ShuffleLinkedList();
+        SortLinkedList llist = new SortLinkedList();
+        llist.add(5);
+        llist.add(10);
         llist.add(3);
-        llist.add(33);
-        llist.add(2);
-        llist.add(18);
-        llist.add(90);
-        llist.add(9);
-        llist.add(11);
-        System.out.println("Before Shuffle : ");
-        ShuffleLinkedList.printList(llist.getHead());
-        Node shuffledLlist = ShuffleLinkedList.shuffle(llist.getHead());
-        ShuffleLinkedList.printList(shuffledLlist);
+        llist.add(6);
+        llist.add(1);
+
+        System.out.println("Linked List before sort : " );
+        SortLinkedList.printList(llist.getHead());
+
+        Node head = llist.sort(llist.getHead());
+
+        System.out.println("sorted linked list : ");
+        SortLinkedList.printList(head);
     }
-
-
 }
